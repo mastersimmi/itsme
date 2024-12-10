@@ -1,0 +1,18 @@
+# Clone or create a repository
+git clone https://github.com/your-username/your-repository.git
+cd your-repository
+
+# Configure your Git user (if not already set)
+git config user.name "mastersimmi"
+git config user.email "mastersimmi786@gmail.com"
+
+# Create backdated commits
+for i in {1..30}
+do
+  echo "Commit for day $i" >> activity-log.txt
+  git add activity-log.txt
+  GIT_AUTHOR_DATE="2023-11-$i 12:00:00" GIT_COMMITTER_DATE="2023-11-$i 12:00:00" git commit -m "Backdated commit for 2023-11-$i"
+done
+
+# Push the commits to GitHub
+git push origin main
